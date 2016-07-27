@@ -1,0 +1,50 @@
+﻿<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../paper-input/paper-input.html" />
+<dom-module id="property-observer">
+    <template>
+
+        <style>
+            :host { display: block; padding: 10px; }
+            .card { box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2); padding: 16px; margin: 24px; border-radius: 5px; background-color: #fff; color: #757575; }
+                .card > * { text-align: center; }
+            .circle { display: inline-block; height: 64px; width: 64px; border-radius: 50%; background: #ddd; line-height: 64px; font-size: 30px; color: #555; text-align: center; }
+            h1 { font-size: 22px; margin: 16px 0; color: #212121; }
+        </style>
+
+
+
+        <div class="card">
+            <h1>Property Observers</h1>
+            <p>Watching changes on a single property
+            <p>
+                Observers are not invoked until all dependent properties are defined.
+                So each dependent properties should have a default value defined in properties
+                (or otherwise be initialized to a non-undefined value) to ensure the observer is called.
+                Observers do not receive old values as arguments, only new values.
+                Only single-property observers defined in the properties object receive both old and new values.
+            </p>
+
+            <div style$="align-content:center" id="kitty" hidden>
+                <img src="https://pixabay.com/static/uploads/photo/2015/11/30/09/12/cat-1069902_960_720.jpg" width="460" height="239" />
+            </div>
+            <paper-input value="{{kittyimg}}"></paper-input>
+
+        </div>
+       
+    </template>
+    <script>
+
+    Polymer({
+
+        is: 'property-observer',
+
+        properties: {
+            kittyimg: { type: String, observer: "showKittyImg" },
+        },
+        showKittyImg: function () {
+            this.$.kitty.hidden = !this.$.kitty.hidden;
+        },
+    });
+
+    </script>
+</dom-module>

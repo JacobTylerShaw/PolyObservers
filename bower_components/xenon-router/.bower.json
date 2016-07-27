@@ -1,0 +1,35 @@
+{
+  "name": "xenon-router",
+  "description": "Creates a show hide for child elements based on url hash",
+  "authors": [
+    "ACA[X]Labs"
+  ],
+  "keywords": [
+    "web-components",
+    "polymer",
+    "router"
+  ],
+  "main": "xenon-router.html",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/acaxlabs/xenon-router.git"
+  },
+  "license": "https://github.com/acaxlabs/xenon-router/blob/master/LICENSE.txt",
+  "homepage": "https://github.com/acaxlabs/xenon-router",
+  "ignore": [],
+  "dependencies": {
+    "polymer": "Polymer/polymer#^1.2.0"
+  },
+  "devDependencies": {},
+  "_release": "6a12df8ed6",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "6a12df8ed6153572abee0ebefc7c45cbb94487c5"
+  },
+  "_source": "git://github.com/Acaxlabs/xenon-router.git",
+  "_target": "*",
+  "_originalSource": "Acaxlabs/xenon-router",
+  "_direct": true
+}
