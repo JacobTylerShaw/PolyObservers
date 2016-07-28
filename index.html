@@ -8,5 +8,10 @@
 </head>
 <body>
     <master-app></master-app>
+    <script>
+        document.querySelector('master-app').addEventListener('isClick', function (e) {
+        console.log(e.detail.isClicked); // true
+    })
+    </script>
 </body>
 </html>

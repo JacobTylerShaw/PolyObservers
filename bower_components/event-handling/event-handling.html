@@ -1,10 +1,47 @@
-﻿<!DOCTYPE html>
-<html>
-<head>
-    <title></title>
-	<meta charset="utf-8" />
-</head>
-<body>
-    event-handling
-</body>
-</html>
+﻿<link rel="import" href="../polymer/polymer.html">
+<dom-module id="event-handling">
+    <template>
+        <style>
+            :host { display: block; padding: 10px; }
+            .card { box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2); padding: 16px; margin: 24px; border-radius: 5px; background-color: #fff; color: #757575; }
+            .circle { display: inline-block; height: 64px; width: 64px; border-radius: 50%; background: #ddd; line-height: 64px; font-size: 30px; color: #555; text-align: center; }
+            h1 { font-size: 22px; margin: 16px 0; color: #212121; }
+        </style>
+
+        <div class="card">
+            <h1>Basic Listeners</h1>
+            <p>
+                Add event listeners to the host element by providing a listeners object that maps events to event handler function names.
+                You can also add an event listener to any element in the this.$ collection using the syntax nodeId.eventName.
+            </p>
+            <paper-button on-tap="handleTap">Click Me!</paper-button>
+            <div style="display:inline; padding:16px;">Tap me!</div>
+            <div style="display:inline; padding:16px;" id="special">Fire Event!</div>
+
+            <div id="popOver" hidden>
+                <h1>Handled event by its id!</h1>
+            </div>
+        </div>
+
+    </template>
+    <script>
+    Polymer({
+        is:'event-handling',
+        listeners: {
+            'tap': 'regularTap',
+            'special.tap': 'specialTap'
+        },
+        handleTap: function () {
+            alert("Handled event as function call")
+        },
+        regularTap: function () {
+            alert("listened to tap events")
+        },
+        specialTap: function () {
+            this.$.popOver.hidden = false
+        },
+
+      
+    });
+    </script>
+</dom-module>

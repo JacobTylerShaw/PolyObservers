@@ -1,11 +1,56 @@
 ﻿<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../paper-button/paper-button.html" />
 <dom-module id="multi-observing">
     <template>
-        Multi
+        <style>
+            :host { display: block; padding: 10px; }
+            .card { box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2); padding: 16px; margin: 24px; border-radius: 5px; background-color: #fff; color: #757575; }
+                .card > * { text-align: center; }
+            .circle { display: inline-block; height: 64px; width: 64px; border-radius: 50%; background: #ddd; line-height: 64px; font-size: 30px; color: #555; text-align: center; }
+            h1 { font-size: 22px; margin: 16px 0; color: #212121; }
+        </style>
+
+        <div class="card">
+            <h1>Observing multiple changes</h1>
+            <p>
+                Define an observers array!
+                To observe changes to more than one property at a time:
+                Add your New observer to the observers array. Be sure to create your method after adding your observer.
+                Observering multiple properties are seprated by a comma.
+                For example, addNumbers(numberA, numberB).
+                When the method is called, the argument to the method is the new value of the property.
+            </p>
+
+            <div style="align-content:center">
+                <p>{{solved}}</p>
+                <paper-button on-click="setNumberA">Set value of Number A</paper-button>
+                <paper-button on-click="setNumberB">set value of Number B</paper-button>
+            </div>
+        </div>
     </template>
     <script>
     Polymer({
         is: 'multi-observing',
+        properties: {
+            numberA: { type: Number },
+            numberB: { type: Number },
+        },
+        observers: [
+             "addNumbers(numberA, numberB)"
+        ],
+
+        setNumberA: function () {
+            this.numberA = 74234;
+        },
+
+        setNumberB: function () {
+            this.numberB = 4234;
+        },
+
+        addNumbers: function (numberA, numberB) {
+            var answer = numberA + numberB;
+            this.set("solved", answer);
+        }
     });
     </script>
 </dom-module>

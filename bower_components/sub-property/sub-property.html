@@ -1,14 +1,78 @@
 ﻿<link rel="import" href="../polymer/polymer.html">
 <dom-module id="sub-property">
     <template>
-        Sub
+        <style>
+            :host { display: block; padding: 10px; }
+            .card { box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2); padding: 16px; margin: 24px; border-radius: 5px; background-color: #fff; color: #757575; }
+                .card > * { text-align: center; }
+            table { font-family: arial, sans-serif; border-collapse: collapse; width: 100%; }
+
+            td, th { border: 1px solid #dddddd; text-align: left; padding: 8px; }
+            .circle { display: inline-block; height: 64px; width: 64px; border-radius: 50%; background: #ddd; line-height: 64px; font-size: 30px; color: #555; text-align: center; }
+            h1 { font-size: 22px; margin: 16px 0; color: #212121; }
+        </style>
+        <div class="card">
+            <h1>Observing sub-property changes</h1>
+            <p>
+                Each path is a sub-property that you want to observe.
+                Define the method in your element prototype. When the method is called,
+                the argument to the method is the new value of the sub-property.
+                In order for Polymer to properly detect the sub-property change, the sub-property must be updated by:<br />
+                A property binding. <br />
+                {{ /* the property that has been updated */  }}<br />
+                Or/
+                <br />
+                By calling set.<br />
+                this.set(/*the property you want to set*/ , /*The new value.*/)
+            </p>
+            <div style="background-color:#ff7a7a">
+                <p style="color:white">
+                    A side not that is helpful to use is wildcard properties. Polymer can watch every sub-property at once too.
+                    So if you have an object coming in and you need your method to run anytime the propertys,sub-property is updated.
+                    You can do so by with this syntax:<br />
+                    (person.*)
+                </p>
+            </div>
+            <div id="userTable" hidden>
+                <h2>Users</h2>
+                <table>
+                    <tr>
+                        <th>Name</th>
+                        <th>Skills</th>
+                    </tr>
+                    <tr>
+                        <td>{{user.name}}</td>
+                        <td>{{user.skill}}</td>
+                    </tr>
+                </table>
+            </div>
+            <paper-input label="Name" value="{{userName}}"></paper-input>
+            <paper-input label="Skill" value="{{userSkill}}"></paper-input>
+            <paper-button on-click="saveUser">Save info</paper-button>
+        </div>
+
+
     </template>
     <script>
 
     Polymer({
 
         is: 'sub-property',
-
+        properties: {
+            user: { type: Object, notify: true, value: {} },
+        },
+        observers: [
+            'userNameChanged(user.name, user.skill)',
+        ],
+        saveUser: function () {
+            this.set("user.name", this.userName);
+            this.set("user.skill", this.userSkill);
+        },
+        userNameChanged: function (name, skill) {
+            this.$.userTable.hidden = false;
+            console.log('new name: ' + name);
+            console.log('new skill: ' + skill);
+        },
     });
 
     </script>
