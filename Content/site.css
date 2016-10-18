@@ -1,0 +1,19 @@
+﻿body { max-width: 1032px; font-family: 'Roboto', sans-serif; }
+.buttons { background-color: #4285f4; color: white; }
+.card { box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2); padding: 16px; margin: 24px; border-radius: 5px; background-color: #fff; color: #757575; }
+    .card > * { text-align: center; }
+.circle { display: inline-block; height: 64px; width: 64px; border-radius: 50%; background: #ddd; line-height: 64px; font-size: 30px; color: #555; text-align: center; }
+h1 { font-size: 22px; margin: 16px 0; color: #212121; }
+a:link { text-decoration: none; color: black; }
+a:visited { text-decoration: none; color: black; }
+a:hover { text-decoration: none; color: black; }
+a:active { text-decoration: none; }
+app-header { background-color: var(--app-primary-color); color: #fff; }
+topBar { background-color: var(--app-primary-color); color: #fff; }
+table { font-family: arial, sans-serif; border-collapse: collapse; width: 100%; }
+td, th { border: 1px solid #dddddd; text-align: left; padding: 8px; }
+app-header paper-icon-button { --paper-icon-button-ink-color: white; }
+.drawer-list { margin: 0 20px; }
+    .drawer-list a { display: block; padding: 0 16px; line-height: 40px; text-decoration: none; color: var(--app-secondary-color); }
+        .drawer-list a.iron-selected { color: black; font-weight: bold; }
+        .drawer-list a.subroute { padding-left: 32px; }

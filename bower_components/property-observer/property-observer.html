@@ -24,10 +24,10 @@
                 Only single-property observers defined in the properties object receive both old and new values.
             </p>
 
-            <div style$="align-content:center" id="kitty" hidden>
-                <img src="https://pixabay.com/static/uploads/photo/2015/11/30/09/12/cat-1069902_960_720.jpg" width="460" height="239" />
+            <div style$="align-content:center" id="showimg" hidden>
+                <img src="../../Photos/google-pixel-camera-example-14.0.jpg" />
             </div>
-            <paper-input value="{{kittyimg}}"></paper-input>
+            <paper-input value="{{showimg}}"></paper-input>
 
         </div>
        
@@ -39,10 +39,10 @@
         is: 'property-observer',
 
         properties: {
-            kittyimg: { type: String, observer: "showKittyImg" },
+            showimg: { type: String, observer: "showThisImg" },
         },
-        showKittyImg: function () {
-            this.$.kitty.hidden = !this.$.kitty.hidden;
+        showThisImg: function () {
+            this.$.showimg.hidden = !this.$.showimg.hidden;
         },
     });
 

@@ -3,10 +3,14 @@
 <head>
     <title></title>
 	<meta charset="utf-8" />
-    <link rel="import" href="bower_components/webcomponentsjs/webcomponents.js" />
-    <link rel="import" href="../website/bower_components/master-app/master-app.html" />
+    <script src="bower_components/webcomponentsjs/webcomponents.js"></script>
+    <link rel="import" href="../bower_components/master-app/master-app.html" />
+   
 </head>
 <body>
+    <style>
+        body{font-family: 'Roboto', sans-serif;}
+    </style>
     <master-app></master-app>
     <script>
         document.querySelector('master-app').addEventListener('isClick', function (e) {

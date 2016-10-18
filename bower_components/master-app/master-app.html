@@ -14,6 +14,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="../app-layout/app-header/app-header.html">
 <link rel="import" href="../app-layout/app-header-layout/app-header-layout.html">
 <link rel="import" href="../app-layout/app-toolbar/app-toolbar.html">
+<link rel="import" href="../paper-item/paper-item.html" />
+<link rel="import" href="../paper-icon-button/paper-icon-button.html" />
+<link rel="import" href="../iron-icon/iron-icon.html" />
 <link rel="import" href="../xenon-router/xenon-router.html" />
 <link rel="import" href="../property-observer/property-observer.html" />
 <link rel="import" href="../sub-property/sub-property.html" />
@@ -26,8 +29,18 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         <style>
             :host { display: block; --app-primary-color: #4285f4; --app-secondary-color: black; }
 
+            a:link { text-decoration: none; color: black; }
+
+            a:visited { text-decoration: none; color: black; }
+
+            a:hover { text-decoration: none; color: black; }
+
+            a:active { text-decoration: none; }
+
             app-header { background-color: var(--app-primary-color); color: #fff; }
+            topBar{background-color: var(--app-primary-color); color: #fff;}
                 app-header paper-icon-button { --paper-icon-button-ink-color: white; }
+
 
             .drawer-list { margin: 0 20px; }
                 .drawer-list a { display: block; padding: 0 16px; line-height: 40px; text-decoration: none; color: var(--app-secondary-color); }
@@ -37,20 +50,19 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         <app-drawer-layout fullbleed>
             <!-- Drawer content -->
             <app-drawer>
-                <app-toolbar></app-toolbar>
-                <div><a href="#PropertyObserving">Property Observing</a></div>
-                <div><a href="#MultiObserving">Multi-property Observing</a></div>
-                <div><a href="#SubProperty">Sub-property Observing</a></div>
-                <div><a href="#ArrayMutation">Array Mutation</a></div>
-                <div><a href="#EventHandling">Event Handling</a></div>
-                <div><a href="#CustomEventHandling">Custom Event Handling</a></div>
+                <app-toolbar style="background-color:#4285f4"><span style="color:white">Polymer-Demo</span></app-toolbar>
+                <paper-item><a href="#PropertyObserving">Property Observing</a></paper-item>
+                <paper-item><a href="#MultiObserving">Multi-property Observing</a></paper-item>
+                <paper-item><a href="#SubProperty">Sub-property Observing</a></paper-item>
+                <paper-item><a href="#ArrayMutation">Array Mutation</a></paper-item>
+                <paper-item><a href="#EventHandling">Event Handling</a></paper-item>
+                <paper-item><a href="#CustomEventHandling">Custom Event Handling</a></paper-item>
             </app-drawer>
             <!-- Main content -->
             <app-header-layout has-scrolling-region>
-                <app-header condenses reveals effects="waterfall">
+                <app-header fixed>
                     <app-toolbar>
-                        <paper-icon-button icon="menu" drawer-toggle></paper-icon-button>
-                        <div>Polymer-Demo</div>
+                         <paper-icon-button style="color: white; z-index:100" icon="menu" drawer-toggle></paper-icon-button>
                     </app-toolbar>
                 </app-header>
                 <xenon-router>
@@ -78,11 +90,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     </template>
     <script>
 
-    Polymer({
+        Polymer({
 
-      is: 'master-app',
+            is: 'master-app',
 
-    });
+        });
 
     </script>
 </dom-module>
